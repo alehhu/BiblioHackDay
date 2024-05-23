@@ -27,7 +27,7 @@ def on_key_down(key):
         show_dialog = True
 
 def get_response_from_chatgpt(prompt):
-    api_key = "YOUR_OPENAI_API_KEY"
+    api_key = "sk-proj-R7JCyeGr309PX2NZ3r7UT3BlbkFJGXhTY4WVn8QeXJYY74Co"
     url = "https://api.openai.com/v1/chat/completions"
     headers = {
         "Content-Type": "application/json",
