@@ -1,0 +1,31 @@
+def on_key_down(key):
+    global user_input, response_text, show_dialog
+    if key == keys.S:
+        user_input = input("Tu: ")
+        response_text = get_response_from_chatgpt(user_input, characters, "Filosofo")
+        show_dialog = True
+
+def get_response_from_chatgpt(prompt, nomePersonaggio, biografiaPersonaggio):
+    api_key = "sk-proj-92zBdBVmLNT7GghwL4n1T3BlbkFJmTJTi3uKSmINqnAfzlX2"
+    url = "https://api.openai.com/v1/chat/completions"
+    headers = {
+        "Content-Type": "application/json",
+        "Authorization": f"Bearer {api_key}"
+    }
+    data = {
+        "model": "gpt-3.5-turbo",
+        "messages": [
+            {"role": "system", "content": f"Rispondi come se fossi {nomePersonaggio}, ecco qui la sua descrizione: {biografiaPersonaggio}"},
+            {"role": "user", "content": prompt}
+        ]
+    }
+
+
+
+characters = {
+    "Arin": "Arin is a brave warrior from the Kingdom of Eldoria. With unmatched skill in swordsmanship, Arin fights to protect the realm from dark forces.",
+    "Zarok": "Zarok is a dark sorcerer who once served as the royal advisor. After being banished for practicing forbidden magic, he now seeks revenge on the kingdom.",
+    "Luna": "Luna is a skilled archer and the hero's closest friend. Her keen eyes and quick reflexes make her an invaluable ally in battle.",
+    "Eldrin": "Eldrin is an old and wise mage who has dedicated his life to studying the ancient arts. He guides Arin on his quest and provides valuable knowledge and magical support.",
+    "Tobias": "Tobias is a traveling merchant known for his extensive collection of rare and valuable items. He often has just the right tool or potion for the hero's needs."
+}
