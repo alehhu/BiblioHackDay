@@ -27,21 +27,19 @@ def on_key_down(key):
         show_dialog = True
 
 def get_response_from_chatgpt(prompt):
-    api_key = "YOUR_OPENAI_API_KEY"
+    api_key = "sk-proj-92zBdBVmLNT7GghwL4n1T3BlbkFJmTJTi3uKSmINqnAfzlX2"
     url = "https://api.openai.com/v1/chat/completions"
     headers = {
         "Content-Type": "application/json",
         "Authorization": f"Bearer {api_key}"
     }
     data = {
-        "model": "gpt-4",
+        "model": "gpt-3.5-turbo",
         "messages": [
-            {"role": "system", "content": "Sei un personaggio di un videogioco."},
+            {"role": "system", "content": f"Rispondi come se fossi Nicola Abbagnano, filosofo"},
             {"role": "user", "content": prompt}
         ]
     }
     response = requests.post(url, headers=headers, data=json.dumps(data))
     response_json = response.json()
     return response_json['choices'][0]['message']['content']
-
-pgzrun.go()
