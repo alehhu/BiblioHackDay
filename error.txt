@@ -1,8 +1,0 @@
-{
-  "error": {
-    "message": "Invalid URL (GET /v1/completions/sk-proj-R7JCyeGr309PX2NZ3r7UT3BlbkFJGXhTY4WVn8QeXJYY74Co)",
-    "type": "invalid_request_error",
-    "param": null,
-    "code": null
-  }
-}
